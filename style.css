@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Forum&family=Inter&family=Lilita+One&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  width: 95%;
+  margin: auto;
+  background-color: red;
+}
+
+h2 {
+  font-family: 'Courier New', Courier, monospace;
+  /* font-weight: 300; */
+  font-size: 35px;
+  color: white;
+}
+
+.header_wraper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 25px 40px;
+}
+
+.nav {}
+
+.nav__menu {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  list-style: none;
+}
+
+.menu {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 300;
+  font-size: 30px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.addition {
+  display: flex;
+  gap: 10px;
+  padding: 10px 40px;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 632px;
+  width: 800px;
+
+  background-color: aqua;
+  color: green;
+  font-family: 'Courier New', Courier, monospace;
+  /* font-weight: 300; */
+  font-size: 200px;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  background-color: gray;
+  border: 2px solid black;
+  font-family: 'Courier New', Courier, monospace;
+  /* font-weight: 300; */
+  font-size: 200px;
+  cursor: pointer;
+}
+
+.number:hover {
+  background-color: rgb(144, 58, 58);
+}
+
+.footer__rss {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 20px 20px 40px 20px;
+}
+
+.footer__rss--1 {
+  color: black;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  margin: 0;
+  transition: 1s;
+}
+
+.footer__rss--1 img {
+  width: 80px;
+}
+
+.footer__rss a:hover {
+  color: red;
+}
