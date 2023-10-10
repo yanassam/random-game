@@ -274,6 +274,7 @@ function division() {
         time()
         endGame()
       }
+
     })
 
   });

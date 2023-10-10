@@ -68,11 +68,11 @@
       <section class="wraper invisible" id="mult">
         <div class="addition">
           <div class="add">
-            <div id="operandMult1" class="add1>">2</div>
-            <div id="operatorMult" class="add1">*</div>
-            <div id="operandMult2" class="add1>">3</div>
-            <div class="add1">=</div>
-            <div class="add1>">?</div>
+            <div id="operandMult1" class="operand__first">2</div>
+            <div id="operatorMult" class="operator">*</div>
+            <div id="operandMult2" class="operand__second">3</div>
+            <div class="operator__second">=</div>
+            <div class="operator__three">?</div>
           </div>
           <div class="numbers">
             <button id="numberMult1" class="numberMult">6</button>
@@ -83,11 +83,11 @@
       <section class="wraper invisible" id="div">
         <div class="addition">
           <div class="add">
-            <div id="operandDiv1" class="add1>">6</div>
-            <div id="operatorDiv" class="add1">:</div>
-            <div id="operandDiv2" class="add1>">3</div>
-            <div class="add1">=</div>
-            <div class="add1>">?</div>
+            <div id="operandDiv1" class="operand__first">6</div>
+            <div id="operatorDiv" class="operator">:</div>
+            <div id="operandDiv2" class="operand__second">3</div>
+            <div class="operand__second">=</div>
+            <div class="operator__three">?</div>
           </div>
           <div class="numbers">
             <button id="numberDiv1" class="numberDiv">2</button>
@@ -98,25 +98,35 @@
     </div>
     <div class="modal__resume">
       <div class="modal__resume__window">
-        <div class="">
-          <h3>Name</h3>
-          <div id="resultName">name</div>
-          <h3>timer</h3>
-          <div id="timer">timer</div>
-          <h3>True</h3>
-          <div id="true">True</div>
-          <h3>False</h3>
-          <div id="false">False</div>
+        <div class="result">
+          <div class="result__wrap">
+            <h3>Name</h3>
+            <div id="resultName">name</div>
+          </div>
+          <div class="result__wrap">
+            <h3>timer</h3>
+            <div id="timer">timer</div>
+          </div>
+          <div class="result__wrap">
+            <h3>True</h3>
+            <div id="true">0</div>
+          </div>
+          <div class="result__wrap">
+            <h3>False</h3>
+            <div id="false">0</div>
+          </div>
         </div>
         <button class="start">start</button>
       </div>
       <div class="owerlay"></div>
     </div>
     <footer>
-      <div class="footer__rss">
-        <p class="footer__rss--1">2023</p>
-        <a class="footer__rss--1" href="https://rs.school/js-stage0"><img src="./images/rs_school_js.svg"></a>
-        <a class="footer__rss--1" href="https://github.com/yanassam">yanassam</a>
+      <div class="footer">
+        <div class="footer__rss">
+          <p class="footer__rss--1">2023</p>
+          <a class="footer__rss--1" href="https://rs.school/js-stage0"><img src="./images/rs_school_js.svg"></a>
+          <a class="footer__rss--1" href="https://github.com/yanassam">yanassam</a>
+        </div>
       </div>
     </footer>
   </main>

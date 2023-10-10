@@ -5,7 +5,8 @@
   padding: 0;
 }
 
-.header {
+.header,
+.footer {
   width: 95%;
   margin: auto;
   background-color: red;
@@ -15,6 +16,10 @@ body {
   font-family: 'Luckiest Guy';
 }
 
+button {
+  border: none;
+}
+
 h2 {
 
   /* font-weight: 300; */
@@ -22,7 +27,15 @@ h2 {
   color: white;
 }
 
-.header_wraper {
+.wraper {
+  background-color: whitesmoke;
+  width: 95%;
+
+  margin: auto;
+}
+
+.header_wraper,
+.footer__rss {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -75,10 +88,10 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 632px;
-  width: 1200px;
-
-  background-color: rgb(245, 245, 245);
+  /* height: 632px;
+  width: 1200px; */
+  width: 88%;
+  background-color: white;
   /* color: green;  */
   /* font-family: 'Courier New', Courier, monospace; */
   /* font-weight: 300; */
@@ -235,6 +248,7 @@ ul {
 
 .modal__resume {
   display: none;
+  /* display: flex; */
   position: fixed;
   width: 100%;
   height: 100%;
@@ -245,13 +259,18 @@ ul {
 }
 
 .modal__resume__window {
-  background: #fff;
+  background: whitesmoke;
   position: relative;
   width: 700px;
   height: 450px;
   border: 1px solid #ccc;
   padding: 20px 25px;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .modal__resume .owerlay {
@@ -265,18 +284,51 @@ ul {
   z-index: 0;
 }
 
-.footer__rss {
+.result {
+  display: flex;
+  flex-direction: column;
+}
+
+.result__wrap {
+  display: flex;
+  gap: 140px;
+  font-size: 35px;
+  color: red;
+}
+
+h3 {
+  color: rgb(78, 100, 226);
+}
+
+.start {
+  background-color: #fed766;
+  color: rgb(78, 100, 226);
+  font-family: 'Luckiest Guy';
+  width: 300px;
+  height: 180px;
+  font-size: 90px;
+  cursor: pointer;
+  transition: 1s;
+  border-radius: 10%;
+}
+
+.start:hover {
+  background-color: rgb(78, 100, 226);
+  color: #fed766;
+}
+
+/* .footer__rss {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
   align-items: center;
   padding: 20px 20px 40px 20px;
-}
+} */
 
 .footer__rss--1 {
-  color: black;
-  font-family: 'Inter', sans-serif;
+  color: white;
+  /* font-family: 'Inter', sans-serif; */
   font-size: 20px;
   line-height: 20px;
   letter-spacing: 2px;
@@ -290,5 +342,5 @@ ul {
 }
 
 .footer__rss a:hover {
-  color: red;
+  color: #fed766;
 }
