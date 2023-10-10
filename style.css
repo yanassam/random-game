@@ -41,6 +41,16 @@ h2 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 300;
   font-size: 30px;
+  cursor: pointer;
+}
+
+.menu:hover {
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.decor {
+  text-decoration: underline;
 }
 
 ul {
@@ -49,18 +59,20 @@ ul {
   padding: 0;
 }
 
-.addition {
+.addition,
+.subtraction {
   display: flex;
   gap: 10px;
   padding: 10px 40px;
 }
 
-.add {
+.add,
+.subtract {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 632px;
-  width: 800px;
+  width: 1200px;
 
   background-color: aqua;
   color: green;
@@ -75,7 +87,10 @@ ul {
   gap: 10px
 }
 
-.number {
+.numberAdd,
+.numberSub,
+.numberMult,
+.numberDiv {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,12 +100,48 @@ ul {
   border: 2px solid black;
   font-family: 'Courier New', Courier, monospace;
   /* font-weight: 300; */
-  font-size: 200px;
+  font-size: 170px;
   cursor: pointer;
 }
 
-.number:hover {
+.numberDiv:hover {
   background-color: rgb(144, 58, 58);
+}
+
+.numberAdd:hover {
+  background-color: rgb(144, 58, 58);
+}
+
+.numberSub:hover {
+  background-color: rgb(144, 58, 58);
+}
+
+.numberMult:hover {
+  background-color: rgb(144, 58, 58);
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.resume {
+  /* display: flex; */
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  position: fixed;
+  top: 100px;
+  left: 40px;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 80vh;
+
 }
 
 .footer__rss {

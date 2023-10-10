@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+  <audio id="myAudio" src="./mp3/fail-wha-wha-version.mp3"></audio>
   <main>
     <header>
       <div class="header">
@@ -23,33 +23,85 @@
           <h2>Math for kids</h2>
           <div class="nav">
             <ul class="nav__menu">
-              <li><a href="#addition" class="menu">add</a></li>
-              <li><a href="#subtraction" class="menu">subtract</a></li>
-              <li><a href="#multiplication" class="menu">multiply</a></li>
-              <li><a href="#about.asp" class="menu">divide</a></li>
+              <li id="addition" class="menu decor">add</li>
+              <li id="subtraction" class="menu">subtract</li>
+              <li id="multiplication" class="menu">multiply</li>
+              <li id="divide" class="menu">divide</li>
             </ul>
           </div>
         </div>
       </div>
     </header>
-    <section class="" id="addition">
+    <section class="wraper invisible visible" id="add">
       <div class="addition">
         <div class="add">
-          <div id="operand1" class="add1>">3</div>
-          <div id="operator" class="add1">+</div>
-          <div id="operand2" class="add1>">4</div>
+          <div id="operand1" class="add1>"></div>
+          <div id="operator" class="add1"></div>
+          <div id="operand2" class="add1>"></div>
           <div class="add1">=</div>
           <div class="add1>">?</div>
         </div>
         <div class="numbers">
-          <div id="number1" class="number">6</div>
-          <div id="number2" class="number">7</div>
-          <div id="number3" class="number">8</div>
+          <button id="number1" class="numberAdd"></button>
+          <button id="number2" class="numberAdd"></button>
+          <button id="number3" class="numberAdd"></button>
         </div>
     </section>
-    <section class="" id="subtraction"></section>
-    <section class="" id="multiplication"></section>
-    <section class="" id="division"></section>
+    <section class="wraper invisible" id="sub">
+      <div class="subtraction">
+        <div class="add">
+          <div id="operandSub1" class="add1>">9</div>
+          <div id="operatorSub" class="add1">-</div>
+          <div id="operandSub2" class="add1>">4</div>
+          <div class="add1">=</div>
+          <div class="add1>">?</div>
+        </div>
+        <div class="numbers">
+          <button id="numberSub1" class="numberSub">6</button>
+          <button id="numberSub2" class="numberSub">5</button>
+          <button id="numberSub3" class="numberSub">8</button>
+        </div>
+    </section>
+    <section class="wraper invisible" id="mult">
+      <div class="addition">
+        <div class="add">
+          <div id="operandMult1" class="add1>">2</div>
+          <div id="operatorMult" class="add1">*</div>
+          <div id="operandMult2" class="add1>">3</div>
+          <div class="add1">=</div>
+          <div class="add1>">?</div>
+        </div>
+        <div class="numbers">
+          <button id="numberMult1" class="numberMult">6</button>
+          <button id="numberMult2" class="numberMult">7</button>
+          <button id="numberMult3" class="numberMult">5</button>
+        </div>
+    </section>
+    <section class="wraper invisible" id="div">
+      <div class="addition">
+        <div class="add">
+          <div id="operandDiv1" class="add1>">6</div>
+          <div id="operatorDiv" class="add1">:</div>
+          <div id="operandDiv2" class="add1>">3</div>
+          <div class="add1">=</div>
+          <div class="add1>">?</div>
+        </div>
+        <div class="numbers">
+          <button id="numberDiv1" class="numberDiv">2</button>
+          <button id="numberDiv2" class="numberDiv">7</button>
+          <button id="numberDiv3" class="numberDiv">5</button>
+        </div>
+    </section>
+    <div class="resume">
+      <h3>Name</h3>
+      <div id="resultName">name</div>
+      <h3>timer</h3>
+      <div id="timer">timer</div>
+      <h3>True</h3>
+      <div id="true">True</div>
+      <h3>False</h3>
+      <div id="false">False</div>
+    </div>
     <footer>
       <div class="footer__rss">
         <p class="footer__rss--1">2023</p>
