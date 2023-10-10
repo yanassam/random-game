@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Forum&family=Inter&family=Lilita+One&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Forum&family=Inter&family=Lilita+One&family=Luckiest+Guy&display=swap"
     rel="stylesheet">
   <title>random game</title>
 </head>
@@ -17,90 +19,98 @@
 <body>
   <audio id="myAudio" src="./mp3/fail-wha-wha-version.mp3"></audio>
   <main>
-    <header>
-      <div class="header">
-        <div class="header_wraper">
-          <h2>Math for kids</h2>
-          <div class="nav">
-            <ul class="nav__menu">
-              <li id="addition" class="menu decor">add</li>
-              <li id="subtraction" class="menu">subtract</li>
-              <li id="multiplication" class="menu">multiply</li>
-              <li id="divide" class="menu">divide</li>
-            </ul>
+    <div class="blockGame">
+      <header>
+        <div class="header">
+          <div class="header_wraper">
+            <h2>Math for kids</h2>
+            <div class="nav">
+              <ul class="nav__menu">
+                <li id="addition" class="menu decor">add</li>
+                <li id="subtraction" class="menu">subtract</li>
+                <li id="multiplication" class="menu">multiply</li>
+                <li id="divide" class="menu">divide</li>
+              </ul>
+            </div>
           </div>
         </div>
+      </header>
+      <section class="wraper invisible visible" id="add">
+        <div class="addition">
+          <div class="add">
+            <div id="operand1" class="operand__first"> </div>
+            <div id="operator" class="operator"></div>
+            <div id="operand2" class="operand__second"></div>
+            <div class="operator__second">=</div>
+            <div class="operator__three">?</div>
+          </div>
+          <div class="numbers">
+            <button id="number1" class="numberAdd"></button>
+            <button id="number2" class="numberAdd"></button>
+            <button id="number3" class="numberAdd"></button>
+          </div>
+      </section>
+      <section class="wraper invisible" id="sub">
+        <div class="subtraction">
+          <div class="add">
+            <div id="operandSub1" class="operand__first">9</div>
+            <div id="operatorSub" class="operator">-</div>
+            <div id="operandSub2" class="operand__second">4</div>
+            <div class="operator__second">=</div>
+            <div class="operator__three">?</div>
+          </div>
+          <div class="numbers">
+            <button id="numberSub1" class="numberSub">6</button>
+            <button id="numberSub2" class="numberSub">5</button>
+            <button id="numberSub3" class="numberSub">8</button>
+          </div>
+      </section>
+      <section class="wraper invisible" id="mult">
+        <div class="addition">
+          <div class="add">
+            <div id="operandMult1" class="add1>">2</div>
+            <div id="operatorMult" class="add1">*</div>
+            <div id="operandMult2" class="add1>">3</div>
+            <div class="add1">=</div>
+            <div class="add1>">?</div>
+          </div>
+          <div class="numbers">
+            <button id="numberMult1" class="numberMult">6</button>
+            <button id="numberMult2" class="numberMult">7</button>
+            <button id="numberMult3" class="numberMult">5</button>
+          </div>
+      </section>
+      <section class="wraper invisible" id="div">
+        <div class="addition">
+          <div class="add">
+            <div id="operandDiv1" class="add1>">6</div>
+            <div id="operatorDiv" class="add1">:</div>
+            <div id="operandDiv2" class="add1>">3</div>
+            <div class="add1">=</div>
+            <div class="add1>">?</div>
+          </div>
+          <div class="numbers">
+            <button id="numberDiv1" class="numberDiv">2</button>
+            <button id="numberDiv2" class="numberDiv">7</button>
+            <button id="numberDiv3" class="numberDiv">5</button>
+          </div>
+      </section>
+    </div>
+    <div class="modal__resume">
+      <div class="modal__resume__window">
+        <div class="">
+          <h3>Name</h3>
+          <div id="resultName">name</div>
+          <h3>timer</h3>
+          <div id="timer">timer</div>
+          <h3>True</h3>
+          <div id="true">True</div>
+          <h3>False</h3>
+          <div id="false">False</div>
+        </div>
+        <button class="start">start</button>
       </div>
-    </header>
-    <section class="wraper invisible visible" id="add">
-      <div class="addition">
-        <div class="add">
-          <div id="operand1" class="add1>"></div>
-          <div id="operator" class="add1"></div>
-          <div id="operand2" class="add1>"></div>
-          <div class="add1">=</div>
-          <div class="add1>">?</div>
-        </div>
-        <div class="numbers">
-          <button id="number1" class="numberAdd"></button>
-          <button id="number2" class="numberAdd"></button>
-          <button id="number3" class="numberAdd"></button>
-        </div>
-    </section>
-    <section class="wraper invisible" id="sub">
-      <div class="subtraction">
-        <div class="add">
-          <div id="operandSub1" class="add1>">9</div>
-          <div id="operatorSub" class="add1">-</div>
-          <div id="operandSub2" class="add1>">4</div>
-          <div class="add1">=</div>
-          <div class="add1>">?</div>
-        </div>
-        <div class="numbers">
-          <button id="numberSub1" class="numberSub">6</button>
-          <button id="numberSub2" class="numberSub">5</button>
-          <button id="numberSub3" class="numberSub">8</button>
-        </div>
-    </section>
-    <section class="wraper invisible" id="mult">
-      <div class="addition">
-        <div class="add">
-          <div id="operandMult1" class="add1>">2</div>
-          <div id="operatorMult" class="add1">*</div>
-          <div id="operandMult2" class="add1>">3</div>
-          <div class="add1">=</div>
-          <div class="add1>">?</div>
-        </div>
-        <div class="numbers">
-          <button id="numberMult1" class="numberMult">6</button>
-          <button id="numberMult2" class="numberMult">7</button>
-          <button id="numberMult3" class="numberMult">5</button>
-        </div>
-    </section>
-    <section class="wraper invisible" id="div">
-      <div class="addition">
-        <div class="add">
-          <div id="operandDiv1" class="add1>">6</div>
-          <div id="operatorDiv" class="add1">:</div>
-          <div id="operandDiv2" class="add1>">3</div>
-          <div class="add1">=</div>
-          <div class="add1>">?</div>
-        </div>
-        <div class="numbers">
-          <button id="numberDiv1" class="numberDiv">2</button>
-          <button id="numberDiv2" class="numberDiv">7</button>
-          <button id="numberDiv3" class="numberDiv">5</button>
-        </div>
-    </section>
-    <div class="resume">
-      <h3>Name</h3>
-      <div id="resultName">name</div>
-      <h3>timer</h3>
-      <div id="timer">timer</div>
-      <h3>True</h3>
-      <div id="true">True</div>
-      <h3>False</h3>
-      <div id="false">False</div>
+      <div class="owerlay"></div>
     </div>
     <footer>
       <div class="footer__rss">

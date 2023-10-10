@@ -70,6 +70,18 @@ function f1() {
 }
 
 startTime = Date.now();
+
+function time() {
+  endTime = Date.now();
+  // Вычислите время выполнения в миллисекундах
+  const executionTime = endTime - startTime;
+  const minutes = Math.floor(executionTime / 60000); // 1 минута = 60 000 миллисекунд
+  const seconds = ((executionTime % 60000) / 1000).toFixed(0); // 1 секунда = 1000 миллисекунд, с округлением до 2 знаков после запятой
+  const formattedTime = `${minutes}:${seconds}`
+  console.log(formattedTime);
+
+  timer.innerHTML = formattedTime;
+}
 function addition() {
 
   answerAdd.forEach(element => {
@@ -90,25 +102,13 @@ function addition() {
       general = correctAnswer + wrongAnswer;
       console.log(general);
       if (general === 5) {
-        endTime = Date.now();
-        // Вычислите время выполнения в миллисекундах
-        const executionTime = endTime - startTime;
-        const minutes = Math.floor(executionTime / 60000); // 1 минута = 60 000 миллисекунд
-        const seconds = ((executionTime % 60000) / 1000).toFixed(0); // 1 секунда = 1000 миллисекунд, с округлением до 2 знаков после запятой
-        const formattedTime = `${minutes}:${seconds}`
-        console.log(formattedTime);
-
-        timer.innerHTML = formattedTime;
-
-        console.log('ura');
-        // header.style.pointerEvents = 'none';
+        time()
         endGame()
-      } else { console.log('8888'); }
+      }
+      // else {  }
     })
 
   });
-
-
 }
 
 function fsum() {
@@ -156,6 +156,10 @@ function subtraction() {
         wrong.innerHTML = wrongAnswer;
       }
       general = correctAnswer + wrongAnswer;
+      if (general === 5) {
+        time()
+        endGame()
+      }
     })
 
   });
@@ -214,6 +218,10 @@ function multiplication() {
         wrong.innerHTML = wrongAnswer;
       }
       general = correctAnswer + wrongAnswer;
+      if (general === 5) {
+        time()
+        endGame()
+      }
     })
   });
 
@@ -262,6 +270,10 @@ function division() {
         wrong.innerHTML = wrongAnswer;
       }
       general = correctAnswer + wrongAnswer;
+      if (general === 5) {
+        time()
+        endGame()
+      }
     })
 
   });
@@ -347,16 +359,16 @@ divide.addEventListener('click', function () {
   })
   div.classList.add('visible');
 })
-const header = document.querySelector('.header')
-// const wraper = document.querySelectorAll('.wraper');
-
+const blockGame = document.querySelector('.blockGame')
+const resume = document.querySelector('.modal__resume');
+const btnStart = document.querySelector('.start')
 let endGame = () => {
-
-  header.style.pointerEvents = 'none';
-  // wraper.style.pointerEvents = 'none';
-
-
+  blockGame.style.pointerEvents = 'none';
+  resume.style.display = 'flex';
 }
+btnStart.addEventListener('click', () => {
+  document.location.reload();
+})
 // const button = document.createElement('button');
 // // button.setAttribute('type', 'button');
 // button.classList.add('number');
