@@ -1,4 +1,8 @@
+
+if (!localStorage.getItem("result")) { localStorage.setItem("result", JSON.stringify([])) }
+
 const audio = document.getElementById('myAudio');
+const audioWish = document.getElementById('myWish');
 const add = document.getElementById('addition');
 const subtract = document.getElementById('subtraction');
 const multiply = document.getElementById('multiplication');
@@ -70,7 +74,7 @@ function f1() {
 }
 
 startTime = Date.now();
-
+const gameResult = [];
 function time() {
   endTime = Date.now();
   // Вычислите время выполнения в миллисекундах
@@ -78,10 +82,38 @@ function time() {
   const minutes = Math.floor(executionTime / 60000); // 1 минута = 60 000 миллисекунд
   const seconds = ((executionTime % 60000) / 1000).toFixed(0); // 1 секунда = 1000 миллисекунд, с округлением до 2 знаков после запятой
   const formattedTime = `${minutes}:${seconds}`
-  console.log(formattedTime);
+  // console.log(formattedTime);
 
   timer.innerHTML = formattedTime;
+  // gameResult.push(formattedTime)
+  // localStorage.setItem("result", gameResult);
+
+
 }
+// Функция для генерации случайных чисел в заданном диапазоне
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Функция для установки значений в зависимости от результата
+function setRandomValues(result, target1, target2, target3) {
+  let randomElement = generateRandomNumber(1, 3);
+
+  if (randomElement === 1) {
+    target1.innerHTML = result;
+    target2.innerHTML = generateRandomNumber(0, 10);
+    target3.innerHTML = generateRandomNumber(0, 10);
+  } else if (randomElement === 2) {
+    target1.innerHTML = generateRandomNumber(0, 10);
+    target2.innerHTML = result;
+    target3.innerHTML = generateRandomNumber(0, 10);
+  } else {
+    target1.innerHTML = generateRandomNumber(0, 10);
+    target2.innerHTML = generateRandomNumber(0, 10);
+    target3.innerHTML = result;
+  }
+}
+
 function addition() {
 
   answerAdd.forEach(element => {
@@ -90,53 +122,39 @@ function addition() {
       let y = Number(operand2.innerHTML);
       result = x + y;
       if (result == +element.innerHTML) {
-        fsum();
+
         correctAnswer = correctAnswer + 1;
         correct.innerHTML = correctAnswer;
-
+        setAdditionValues();
+        // gameResult.push(correctAnswer);
+        // localStorage.setItem("result", correctAnswer);
       } else {
-        audio.play();
+
         wrongAnswer = wrongAnswer + 1;
         wrong.innerHTML = wrongAnswer;
+        audio.play();
+        // gameResult.push(wrongAnswer);
+        // localStorage.setItem("result", gameResult);
       }
+
       general = correctAnswer + wrongAnswer;
       console.log(general);
+
+
       if (general === 5) {
+        // gameResult = {
+        //   true: correctAnswer,
+        //   false: wrongAnswer,
+        // }
+        // localStorage.setItem("result", JSON.stringify(gameResult));
+        wish()
         time()
         endGame()
+        console.log(gameResult);
       }
-      // else {  }
     })
-
   });
 }
-
-function fsum() {
-
-  operand1.innerHTML = Math.floor(Math.random() * 11);
-  operand2.innerHTML = Math.floor(Math.random() * 11);
-  let x = Number(operand1.innerHTML);
-  let y = Number(operand2.innerHTML);
-
-  result = x + y;
-  let randomElement = Math.floor(Math.random() * 3) + 1;
-
-  // В зависимости от значения randomElement присваиваем значение result одному из элементов
-  if (randomElement === 1) {
-    num1.innerHTML = result;
-    num2.innerHTML = Math.floor(Math.random() * 11);
-    num3.innerHTML = Math.floor(Math.random() * 11);
-  } else if (randomElement === 2) {
-    num1.innerHTML = Math.floor(Math.random() * 11);
-    num2.innerHTML = result;
-    num3.innerHTML = Math.floor(Math.random() * 11);
-  } else {
-    num1.innerHTML = Math.floor(Math.random() * 11);
-    num2.innerHTML = Math.floor(Math.random() * 11);
-    num3.innerHTML = result;
-  }
-}
-
 
 function subtraction() {
 
@@ -147,7 +165,7 @@ function subtraction() {
       let y = Number(operandSub2.innerHTML);
       result = x - y;
       if (result == +element.innerHTML) {
-        fsub();
+        setSubtractionValues();
         correctAnswer = correctAnswer + 1;
         correct.innerHTML = correctAnswer;
       } else {
@@ -157,50 +175,13 @@ function subtraction() {
       }
       general = correctAnswer + wrongAnswer;
       if (general === 5) {
+        wish()
         time()
         endGame()
       }
     })
-
   });
 }
-
-function fsub() {
-
-  // operator.innerHTML = '-';
-  let a = Math.floor(Math.random() * 11);
-  let b = Math.floor(Math.random() * 11);
-  if (a >= b) {
-    operandSub1.innerHTML = a;
-    operandSub2.innerHTML = b;
-  } else {
-    operandSub1.innerHTML = b;
-    operandSub2.innerHTML = a;
-  }
-
-  let x = Number(operandSub1.innerHTML);
-  let y = Number(operandSub2.innerHTML);
-
-
-  result = x - y;
-  let randomElement = Math.floor(Math.random() * 3) + 1;
-
-  // В зависимости от значения randomElement присваиваем значение result одному из элементов
-  if (randomElement === 1) {
-    numSub1.innerHTML = result;
-    numSub2.innerHTML = Math.floor(Math.random() * 11);
-    numSub3.innerHTML = Math.floor(Math.random() * 11);
-  } else if (randomElement === 2) {
-    numSub1.innerHTML = Math.floor(Math.random() * 11);
-    numSub2.innerHTML = result;
-    numSub3.innerHTML = Math.floor(Math.random() * 11);
-  } else {
-    numSub1.innerHTML = Math.floor(Math.random() * 11);
-    numSub2.innerHTML = Math.floor(Math.random() * 11);
-    numSub3.innerHTML = result;
-  }
-}
-
 function multiplication() {
 
   answerMult.forEach(element => {
@@ -209,7 +190,7 @@ function multiplication() {
       let y = Number(operandMult2.innerHTML);
       result = x * y;
       if (result == +element.innerHTML) {
-        fmult();
+        setMultiplicationValues();
         correctAnswer = correctAnswer + 1;
         correct.innerHTML = correctAnswer;
       } else {
@@ -219,38 +200,12 @@ function multiplication() {
       }
       general = correctAnswer + wrongAnswer;
       if (general === 5) {
+        wish()
         time()
         endGame()
       }
     })
   });
-
-
-}
-
-function fmult() {
-  operandMult1.innerHTML = Math.floor(Math.random() * 11);
-  operandMult2.innerHTML = Math.floor(Math.random() * 11);
-  let x = Number(operandMult1.innerHTML);
-  let y = Number(operandMult2.innerHTML);
-
-  result = x * y;
-  let randomElement = Math.floor(Math.random() * 3) + 1;
-
-  // В зависимости от значения randomElement присваиваем значение result одному из элементов
-  if (randomElement === 1) {
-    numMult1.innerHTML = result;
-    numMult2.innerHTML = Math.floor(Math.random() * 21);
-    numMult3.innerHTML = Math.floor(Math.random() * 12);
-  } else if (randomElement === 2) {
-    numMult1.innerHTML = Math.floor(Math.random() * 21);
-    numMult2.innerHTML = result;
-    numMult3.innerHTML = Math.floor(Math.random() * 15);
-  } else {
-    numMult1.innerHTML = Math.floor(Math.random() * 99);
-    numMult2.innerHTML = Math.floor(Math.random() * 17);
-    numMult3.innerHTML = result;
-  }
 }
 
 function division() {
@@ -261,7 +216,7 @@ function division() {
       let y = Number(operandDiv2.innerHTML);
       result = x / y;
       if (result == +element.innerHTML) {
-        fdiv();
+        setDivisionValues();
         correctAnswer = correctAnswer + 1;
         correct.innerHTML = correctAnswer;
       } else {
@@ -271,43 +226,64 @@ function division() {
       }
       general = correctAnswer + wrongAnswer;
       if (general === 5) {
+        wish()
         time()
         endGame()
       }
-
     })
-
   });
-
 }
-function fdiv() {
 
+
+function setAdditionValues() {
+  operand1.innerHTML = generateRandomNumber(0, 10);
+  operand2.innerHTML = generateRandomNumber(0, 10);
+  const x = Number(operand1.innerHTML);
+  const y = Number(operand2.innerHTML);
+  result = x + y;
+  setRandomValues(result, num1, num2, num3);
+}
+
+function setSubtractionValues() {
+  const a = generateRandomNumber(0, 10);
+  const b = generateRandomNumber(0, 10);
+  if (a >= b) {
+    operandSub1.innerHTML = a;
+    operandSub2.innerHTML = b;
+  } else {
+    operandSub1.innerHTML = b;
+    operandSub2.innerHTML = a;
+  }
+  const x = Number(operandSub1.innerHTML);
+  const y = Number(operandSub2.innerHTML);
+  result = x - y;
+  setRandomValues(result, numSub1, numSub2, numSub3);
+}
+
+
+function setMultiplicationValues() {
+  operandMult1.innerHTML = generateRandomNumber(0, 10);
+  operandMult2.innerHTML = generateRandomNumber(0, 10);
+  const x = Number(operandMult1.innerHTML);
+  const y = Number(operandMult2.innerHTML);
+  result = x * y;
+  setRandomValues(result, numMult1, numMult2, numMult3);
+}
+
+function setDivisionValues() {
   let a, b, result;
+
+  // Генерация чисел a и b, пока результат не станет целым числом
   do {
-    a = Math.floor(Math.random() * 10) + 1;
-    b = Math.floor(Math.random() * 10) + 1;
+    a = generateRandomNumber(1, 10);
+    b = generateRandomNumber(1, 10);
     result = a / b;
   } while (result % 1 !== 0);
 
   operandDiv1.innerHTML = a;
   operandDiv2.innerHTML = b;
+  setRandomValues(result, numDiv1, numDiv2, numDiv3);
 
-  let randomElement = Math.floor(Math.random() * 3) + 1;
-
-  // В зависимости от значения randomElement присваиваем значение result одному из элементов
-  if (randomElement === 1) {
-    numDiv1.innerHTML = result;
-    numDiv2.innerHTML = Math.floor(Math.random() * 21);
-    numDiv3.innerHTML = Math.floor(Math.random() * 12);
-  } else if (randomElement === 2) {
-    numDiv1.innerHTML = Math.floor(Math.random() * 21);
-    numDiv2.innerHTML = result;
-    numDiv3.innerHTML = Math.floor(Math.random() * 15);
-  } else {
-    numDiv1.innerHTML = Math.floor(Math.random() * 99);
-    numDiv2.innerHTML = Math.floor(Math.random() * 17);
-    numDiv3.innerHTML = result;
-  }
 }
 
 add.addEventListener('click', function () {
@@ -363,22 +339,23 @@ divide.addEventListener('click', function () {
 const blockGame = document.querySelector('.blockGame')
 const resume = document.querySelector('.modal__resume');
 const btnStart = document.querySelector('.start')
-let endGame = () => {
+const resultWish = document.getElementById('resultName')
+
+function endGame() {
   blockGame.style.pointerEvents = 'none';
   resume.style.display = 'flex';
 }
 btnStart.addEventListener('click', () => {
   document.location.reload();
 })
-// const button = document.createElement('button');
-// // button.setAttribute('type', 'button');
-// button.classList.add('number');
-// button.textContent = '77';
-// button.addEventListener('click', () => {
-//   alert('Кнопка нажата')
-// });
 
-// document.body.append(button);
-// subtraction();
-// multiplication();
+function wish() {
+  if (correctAnswer == 5) {
+    resultWish.innerHTML = "Brawo, Super!!";
+    audioWish.play();
+  } else {
+    resultWish.innerHTML = "You still need to study";
+  }
+}
+
 
