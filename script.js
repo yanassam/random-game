@@ -1,5 +1,5 @@
 
-if (!localStorage.getItem("result")) { localStorage.setItem("result", JSON.stringify([])) }
+if (!localStorage.getItem("gameResults")) { localStorage.setItem("gameResults", JSON.stringify([])) }
 
 const audio = document.getElementById('myAudio');
 const audioWish = document.getElementById('myWish');
@@ -150,6 +150,7 @@ function addition() {
         wish()
         time()
         endGame()
+
         console.log(gameResult);
       }
     })
@@ -338,12 +339,37 @@ divide.addEventListener('click', function () {
 })
 const blockGame = document.querySelector('.blockGame')
 const resume = document.querySelector('.modal__resume');
-const btnStart = document.querySelector('.start')
-const resultWish = document.getElementById('resultName')
-
+const btnStart = document.querySelector('.start');
+const resultWish = document.getElementById('resultName');
+const recordTable = document.getElementById('recordTable');
 function endGame() {
   blockGame.style.pointerEvents = 'none';
   resume.style.display = 'flex';
+
+  const gameData = {
+    timer: timer.innerHTML,
+    true: correctAnswer,
+    false: wrongAnswer
+  };
+
+  let gameResults = JSON.parse(localStorage.getItem('gameResults')) || [];
+
+  gameResults.push(gameData);
+  localStorage.setItem('gameResults', JSON.stringify(gameResults));
+
+  let getResult = localStorage.getItem('gameResults');
+  getResult = JSON.parse(getResult);
+  let c = '';
+  for (key in gameResults) {
+    if (key < gameResults.length && key > (gameResults.length - 11)) {
+      c += 'True: ' + gameResults[key].true + '  False: ' + gameResults[key].false + '  Timer: ' + gameResults[key].timer + '<br>';
+    }
+  }
+
+  recordTable.innerHTML = c;
+
+
+
 }
 btnStart.addEventListener('click', () => {
   document.location.reload();
@@ -352,6 +378,7 @@ btnStart.addEventListener('click', () => {
 function wish() {
   if (correctAnswer == 5) {
     resultWish.innerHTML = "Brawo, Super!!";
+
     audioWish.play();
   } else {
     resultWish.innerHTML = "You still need to study";
@@ -359,3 +386,19 @@ function wish() {
 }
 
 
+// Предположим, что у вас есть переменные timer, correctAnswer и wrongAnswer,
+// которые хранят данные о таймере, верных и неверных ответах соответственно.
+// const gameData = {
+//   timer: timer.innerHTML,
+//   true: correctAnswer,
+//   false: wrongAnswer
+// };
+
+// // Загрузите существующие данные из localStorage, если они там уже есть.
+// let gameResults = JSON.parse(localStorage.getItem('gameResults')) || [];
+
+// // Добавьте новые данные к массиву.
+// gameResults.push(gameData);
+
+// // Сохраните обновленный массив обратно в localStorage.
+// localStorage.setItem('gameResults', JSON.stringify(gameResults));
