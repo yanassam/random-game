@@ -49,6 +49,7 @@ h2 {
   justify-content: space-between;
   gap: 20px;
   list-style: none;
+
 }
 
 .menu {
@@ -59,15 +60,19 @@ h2 {
   font-weight: 300;
   font-size: 30px;
   cursor: pointer;
+  transition: 1s;
+
 }
 
 .menu:hover {
   font-size: 30px;
   text-decoration: underline;
+  transition: 1s;
 }
 
 .decor {
   text-decoration: underline;
+
 }
 
 ul {
