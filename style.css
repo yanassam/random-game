@@ -346,3 +346,14 @@ h3 {
 .footer__rss a:hover {
   color: #fed766;
 }
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #111;
+}
+
+.canvas__visible {
+  display: none;
+}
